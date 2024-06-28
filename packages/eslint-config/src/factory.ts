@@ -6,7 +6,7 @@ import type { AllConfigItem, Awaitable } from '@/types/utils'
  * ESLint config constructor
  */
 export async function alphayou(
-  options: Options
+  options: Options = {}
 ): Promise<AllConfigItem[]> {
   // target array
   const configs: Awaitable<AllConfigItem[]>[] = []

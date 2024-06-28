@@ -5,11 +5,12 @@
   "version": "0.1.0",
   "description": "Alpha You's codestyle monorepo",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pnpm run -r --filter=./packages/* build"
   },
   "author": "Amano Fuon <amanofuon@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@alphayou/cs": "workspace:*",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.9",
     "eslint": "^9.5.0",
