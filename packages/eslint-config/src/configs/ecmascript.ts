@@ -257,6 +257,8 @@ export async function ecmascript(
         'valid-typeof': ['error', { requireStringLiterals: true }],
         'vars-on-top': 'error',
         'yoda': ['error', 'never'],
+
+        ...overrides
       }
     }
   ]

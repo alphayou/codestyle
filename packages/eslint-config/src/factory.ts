@@ -1,4 +1,4 @@
-import { style } from '@/configs/style'
+import { style, ecmascript } from '@/configs'
 import type { Options } from '@/types/options'
 import type { AllConfigItem, Awaitable } from '@/types/utils'
 
@@ -21,6 +21,9 @@ export async function alphayou(
   if (styleOptions) {
     configs.push(style(styleOptions))
   }
+
+  // PART: ECMAScript
+  configs.push(ecmascript(options.es))
 
   const resolved = await Promise.all(configs)
 
