@@ -8,6 +8,7 @@ import type { AllConfigItem, Awaitable } from '@/types/utils'
 export async function alphayou(
   options: Options
 ): Promise<AllConfigItem[]> {
+  // target array
   const configs: Awaitable<AllConfigItem[]>[] = []
 
   // PART: Style

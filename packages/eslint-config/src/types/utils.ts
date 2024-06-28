@@ -8,6 +8,8 @@ export type TypedConfigItem<T = {}> = Omit<Linter.FlatConfig<Linter.RulesRecord 
   plugins?: Record<string, any>
 }
 
+// TypedConfigItem for each scope
+
 export type AllConfigItem = TypedConfigItem<AllRules>
 
 export type StyleConfigItem = TypedConfigItem<StyleRules>
