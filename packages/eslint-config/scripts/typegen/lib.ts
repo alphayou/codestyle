@@ -50,7 +50,7 @@ export async function typegen(payload: Payload) {
 
     const configs = await combine(...resolved)
 
-    definition = await flatConfigsToRulesDTS(configs, {
+    definition += await flatConfigsToRulesDTS(configs, {
       exportTypeName: payload[index].typeName,
       includeIgnoreComments: false,
       includeTypeImports: false,
@@ -66,7 +66,7 @@ export async function typegen(payload: Payload) {
     const typeName = typeNames[index]
 
     if (index !== typeNames.length - 1) {
-      ruleTypes += `${typeName} & `
+      ruleTypes += `${typeName}, `
     } else {
       ruleTypes += typeName
     }
@@ -83,7 +83,7 @@ declare module 'eslint' {
   output += definition
 
   output += `\n
-export type AllRules = ${ruleTypes}
+export type AllRules = ${ruleTypes.replace(', ', ' & ')}
 `
 
   return output

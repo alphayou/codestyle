@@ -1,12 +1,17 @@
 import type { Payload } from './lib'
 import { writeFile } from 'fs/promises'
 import { typegen } from './lib'
-import { style } from '@/configs/style'
+import { style, ecmascript } from '@/configs'
 
 const ConfigsMaps: Payload = [
   {
     typeName: 'StyleRules',
     configConstructor: style,
+  },
+  {
+    typeName: 'ESRules',
+    configConstructor: ecmascript,
+    internal: true,
   }
 ]
 

@@ -1,5 +1,5 @@
 import type { StyleOptions } from '@/types/options'
-import type { TypedConfigItem } from '@/types/utils'
+import type { StyleConfigItem } from '@/types/utils'
 import { interopDefault } from '@/utils'
 
 const defaults: StyleOptions = {
@@ -15,7 +15,7 @@ const defaults: StyleOptions = {
  */
 export async function style(
   options: StyleOptions = {}
-): Promise<TypedConfigItem[]> {
+): Promise<StyleConfigItem[]> {
   const {
     indent,
     quotes,
