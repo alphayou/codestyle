@@ -1,5 +1,5 @@
 import type { Linter } from 'eslint'
-import type { AllRules, StyleRules } from './rules'
+import type { AllRules, ESRules, StyleRules } from './rules'
 
 export type Awaitable<T> = T | Promise<T>
 
@@ -13,3 +13,5 @@ export type TypedConfigItem<T = {}> = Omit<Linter.FlatConfig<Linter.RulesRecord 
 export type AllConfigItem = TypedConfigItem<AllRules>
 
 export type StyleConfigItem = TypedConfigItem<StyleRules>
+
+export type ESConfigItem = TypedConfigItem<ESRules>

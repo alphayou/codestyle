@@ -1,4 +1,4 @@
-import type { StyleRules } from './rules'
+import type { StyleRules, ESRules } from './rules'
 
 /**
  * Config constructor options
@@ -8,6 +8,12 @@ export interface Options {
    * Code format style tuner
    */
   style?: boolean | StyleOptions
+
+  /**
+   * ECMAScript linting tunner
+   * - can't be disabled
+   */
+  es?: ESOptions
 }
 
 /**
@@ -54,3 +60,8 @@ export interface StyleOptions extends Overrides<StyleRules> {
    */
   jsx?: boolean
 }
+
+/**
+ * ECMAScript linting options
+ */
+export interface ESOptions extends Overrides<ESRules> {}
