@@ -1,2 +1,6 @@
 # Runtime and dependencies
 node_modules
+
+# Developmet
+dist
+rules.d.ts

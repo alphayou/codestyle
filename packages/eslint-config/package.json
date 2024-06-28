@@ -1,0 +1,40 @@
+{
+  "name": "@alphayou/cs",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Alpha You's ESLint config preset",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "eslint-config"
+  ],
+  "author": "Amano Fuon <amanofuon@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alphayou/codestyle",
+    "directory": "packages/eslint-config"
+  },
+  "bugs": "https://github.com/alphayou/codestyle/issues",
+  "readme": "https://github.com/alphayou/codestyle#readme",
+  "scripts": {
+    "typegen": "esno scripts/typegen/generate.ts",
+    "build": "pnpm typegen && tsup"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.57.0"
+  },
+  "dependencies": {
+    "@stylistic/eslint-plugin": "^2.3.0"
+  }
+}

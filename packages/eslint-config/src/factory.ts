@@ -1,0 +1,27 @@
+import { style } from '@/configs/style'
+import type { Options } from '@/types/options'
+import type { AllConfigItem, Awaitable } from '@/types/utils'
+
+/**
+ * ESLint config constructor
+ */
+export async function alphayou(
+  options: Options
+): Promise<AllConfigItem[]> {
+  const configs: Awaitable<AllConfigItem[]>[] = []
+
+  // PART: Style
+  const styleOptions = options.style === false
+   ? false
+   : typeof options.style === 'object'
+     ? options.style
+     : {}
+
+  if (styleOptions) {
+    configs.push(style(styleOptions))
+  }
+
+  const resolved = await Promise.all(configs)
+
+  return resolved.flat()
+}
