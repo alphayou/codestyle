@@ -5,6 +5,14 @@ import type { StyleRules, ESRules } from './rules'
  */
 export interface Options {
   /**
+   * Configs preset
+   * - choose a pre-composed preset
+   * @todo
+   * @default 'vanilla'
+   */
+  preset?: 'vanilla'
+
+  /**
    * Code format style tuner
    */
   style?: boolean | StyleOptions

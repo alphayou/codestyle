@@ -5,12 +5,14 @@
   "version": "0.1.0",
   "description": "Alpha You's codestyle monorepo",
   "scripts": {
-    "build": "pnpm run -r --filter=./packages/* build"
+    "build": "pnpm run -r --filter=./packages/* build",
+    "dev": "pnpm eslint-config-inspector"
   },
   "author": "Amano Fuon <amanofuon@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@alphayou/cs": "workspace:*",
+    "@eslint/config-inspector": "^0.5.1",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.9",
     "eslint": "^9.5.0",

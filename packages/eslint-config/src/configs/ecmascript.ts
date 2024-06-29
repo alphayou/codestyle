@@ -1,4 +1,5 @@
 import globals from 'globals'
+import { GLOB_SRC, GLOB_SRC_EXT } from '@/globs'
 import type { ESConfigItem, ESOptions } from '@/types';
 
 export async function ecmascript(
@@ -259,6 +260,14 @@ export async function ecmascript(
         'yoda': ['error', 'never'],
 
         ...overrides
+      }
+    },
+    {
+      name: 'alphayou/ecmascript/disables/cli',
+      files: [`scripts/${GLOB_SRC}`, `cli.${GLOB_SRC_EXT}`],
+      rules: {
+        'no-console': 'off',
+        'no-debugger': 'off',
       }
     }
   ]
