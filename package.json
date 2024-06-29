@@ -18,6 +18,7 @@
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.9",
     "bumpp": "^9.4.1",
+    "changelogithub": "^0.13.7",
     "eslint": "^9.5.0",
     "eslint-typegen": "^0.2.4",
     "esno": "^4.7.0",
