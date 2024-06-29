@@ -4,3 +4,4 @@ node_modules
 # Developmet
 dist
 rules.d.ts
+tsconfig.tsbuildinfo
