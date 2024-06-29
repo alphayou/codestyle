@@ -1,7 +1,7 @@
 {
   "name": "@alphayou/cs",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Alpha You's ESLint config preset",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -27,9 +27,13 @@
   },
   "bugs": "https://github.com/alphayou/codestyle/issues",
   "readme": "https://github.com/alphayou/codestyle#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "typegen": "esno scripts/typegen/generate.ts",
-    "build": "pnpm typegen && tsup"
+    "build": "pnpm typegen && tsup",
+    "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
     "eslint": ">=8.57.0"
