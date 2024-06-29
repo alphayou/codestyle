@@ -2,7 +2,7 @@
   "name": "@alphayou/codestyle-monorepo",
   "private": true,
   "type": "module",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Alpha You's codestyle monorepo",
   "scripts": {
     "build": "pnpm run -r --filter=./packages/* build",
