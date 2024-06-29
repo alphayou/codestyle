@@ -28,7 +28,8 @@
   "bugs": "https://github.com/alphayou/codestyle/issues",
   "readme": "https://github.com/alphayou/codestyle#readme",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "scripts": {
     "typegen": "esno scripts/typegen/generate.ts",
