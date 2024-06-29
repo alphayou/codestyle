@@ -8,8 +8,7 @@
     "build": "pnpm run -r --filter=./packages/* build",
     "dev": "eslint-config-inspector",
     "typecheck": "pnpm run -r --filter=./packages/* typecheck",
-    "release": "bumpp --no-push --recursive",
-    "gh:publish": "pnpm build && pnpm publish -r --filter=./packages/* --provenance --no-git-checks"
+    "release": "bumpp --no-push --recursive"
   },
   "author": "Amano Fuon <amanofuon@gmail.com>",
   "license": "MIT",

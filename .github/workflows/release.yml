@@ -26,7 +26,6 @@ jobs:
         with:
           node-version: 20
           cache: 'pnpm'
-          registry-url: 'https://registry.npmjs.org'
 
       - name: Get pnpm store directory
         shell: bash
@@ -44,8 +43,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build and publish packages
-        run: pnpm run gh:publish
+      - name: Build packages
+        run: pnpm run build
+
+      - name: Publish packages
+        run: pnpm publish -r --filter=./packages/* --provenance --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
