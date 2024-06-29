@@ -45,7 +45,7 @@ jobs:
         run: pnpm install
 
       - name: Build and publish packages
-        run: pnpm publish --provenance
+        run: pnpm run gh:publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 

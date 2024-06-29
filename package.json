@@ -9,7 +9,7 @@
     "dev": "eslint-config-inspector",
     "typecheck": "pnpm run -r --filter=./packages/* typecheck",
     "release": "bumpp --no-push --recursive",
-    "publish": "pnpm build && pnpm publish -r --filter=./packages/* --no-git-checks"
+    "gh:publish": "pnpm build && pnpm publish -r --filter=./packages/* --provenance --no-git-checks"
   },
   "author": "Amano Fuon <amanofuon@gmail.com>",
   "license": "MIT",
