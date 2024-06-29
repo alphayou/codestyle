@@ -11,19 +11,10 @@ export async function alphayou(
   // target array
   const configs: Awaitable<AllConfigItem[]>[] = []
 
-  // PART: Style
-  const styleOptions = options.style === false
-   ? false
-   : typeof options.style === 'object'
-     ? options.style
-     : {}
-
-  if (styleOptions) {
-    configs.push(style(styleOptions))
-  }
-
-  // PART: ECMAScript
-  configs.push(ecmascript(options.es))
+  configs.push(
+    style(options.style),
+    ecmascript(options.es)
+  )
 
   const resolved = await Promise.all(configs)
 

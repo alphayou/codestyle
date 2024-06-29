@@ -1,4 +1,4 @@
-import type { StyleOptions } from '@/types/options'
+import type { Options, StyleOptions } from '@/types/options'
 import type { StyleConfigItem } from '@/types/utils'
 import { interopDefault } from '@/utils'
 
@@ -14,8 +14,15 @@ const defaults: StyleOptions = {
  * Code format style config constructor
  */
 export async function style(
-  options: StyleOptions = {}
+  options: Options['style'] = {}
 ): Promise<StyleConfigItem[]> {
+  // parse options
+  const styleOptions = options === false
+   ? false
+   : typeof options === 'object'
+     ? options
+     : {}
+
   const {
     indent,
     quotes,
@@ -25,7 +32,7 @@ export async function style(
     overrides = {}
   } = {
     ...defaults,
-    ...options
+    ...styleOptions
   }
 
   const stylistic = await interopDefault(import('@stylistic/eslint-plugin'))
