@@ -1,9 +1,10 @@
 import globals from 'globals'
 import { GLOB_SRC, GLOB_SRC_EXT } from '@/globs'
-import type { ESConfigItem, ESOptions } from '@/types';
+import type { ESConfigItem, Options, PresetName } from '@/types'
 
 export async function ecmascript(
-  options: ESOptions = {}
+  options: Options['ecmascript'] = {},
+  _preset?: PresetName
 ): Promise<ESConfigItem[]> {
   const {
     overrides = {}

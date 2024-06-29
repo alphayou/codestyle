@@ -1,5 +1,4 @@
-import type { Options, StyleOptions } from '@/types/options'
-import type { StyleConfigItem } from '@/types/utils'
+import type { Options, PresetName ,StyleConfigItem, StyleOptions } from '@/types'
 import { interopDefault } from '@/utils'
 
 const defaults: StyleOptions = {
@@ -14,7 +13,8 @@ const defaults: StyleOptions = {
  * Code format style config constructor
  */
 export async function style(
-  options: Options['style'] = {}
+  options: Options['style'] = {},
+  _preset?: PresetName
 ): Promise<StyleConfigItem[]> {
   // parse options
   const styleOptions = options === false
@@ -22,6 +22,11 @@ export async function style(
    : typeof options === 'object'
      ? options
      : {}
+
+  // set options to false to disable config
+  if (styleOptions === false) {
+    return []
+  }
 
   const {
     indent,

@@ -1,3 +1,4 @@
+import type { PresetName } from '@/types'
 import type { StyleRules, ESRules } from './rules'
 
 /**
@@ -10,7 +11,7 @@ export interface Options {
    * @todo
    * @default 'vanilla'
    */
-  preset?: 'vanilla'
+  preset?: PresetName
 
   /**
    * Code format style tuner
@@ -21,13 +22,13 @@ export interface Options {
    * ECMAScript linting tunner
    * - can't be disabled
    */
-  es?: ESOptions
+  ecmascript?: ESOptions
 }
 
 /**
  * Specific Overrides
  */
-interface Overrides<T = {}> {
+export interface Overrides<T = {}> {
   /**
    * Rules Overrides
    */
