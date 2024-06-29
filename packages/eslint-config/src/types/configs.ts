@@ -6,7 +6,13 @@ export type ConfigBuilder = (options?: Object, preset?: PresetName) => Promise<T
 
 export type ConfigNames = Exclude<keyof Options, 'preset'>
 
-export type ConfigMap = Record<ConfigNames, ConfigBuilder>
+export interface ConfigPayload {
+  typeName: string,
+  builder: ConfigBuilder
+  internal?: boolean
+}
+
+export type ConfigMap = Record<ConfigNames, ConfigPayload>
 
 export type TypedConfigItem<T = {}> = Omit<Linter.FlatConfig<Linter.RulesRecord & T>, 'plugins'> & {
   // relax plugin type restriction

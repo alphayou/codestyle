@@ -3,9 +3,12 @@ import { style } from './style'
 import { ecmascript } from './ecmascript'
 
 export const configMap: ConfigMap = {
-  style,
-  ecmascript,
+  style: {
+    typeName: 'StyleRules',
+    builder: style,
+  },
+  ecmascript: {
+    typeName: 'ESRules',
+    builder: ecmascript,
+  },
 }
-
-export * from './style'
-export * from './ecmascript'

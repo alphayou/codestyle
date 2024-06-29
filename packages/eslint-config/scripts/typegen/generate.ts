@@ -1,25 +1,12 @@
-import type { Payload } from './lib'
 import { writeFile } from 'fs/promises'
 import { typegen } from './lib'
-import { style, ecmascript } from '@/configs'
-
-const ConfigsMaps: Payload = [
-  {
-    typeName: 'StyleRules',
-    configConstructor: style,
-  },
-  {
-    typeName: 'ESRules',
-    configConstructor: ecmascript,
-    internal: true,
-  }
-]
+import { configMap } from '@/configs'
 
 const startedTime = performance.now()
 
 console.log('\x1b[32m%s\x1b[0m', 'Generating rules types...')
 
-const dts = await typegen(ConfigsMaps)
+const dts = await typegen(Object.values(configMap))
 
 await writeFile('./src/types/rules.d.ts', dts)
 

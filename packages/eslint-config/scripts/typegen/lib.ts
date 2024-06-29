@@ -1,14 +1,6 @@
-import type { Awaitable, TypedConfigItem } from '@/types/utils'
+import type { Awaitable, ConfigPayload, TypedConfigItem } from '@/types'
 import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 import { builtinRules } from 'eslint/use-at-your-own-risk'
-
-interface PayloadValue {
-  typeName: string,
-  configConstructor: () => Promise<TypedConfigItem[]>,
-  internal?: boolean
-}
-
-export type Payload = PayloadValue[]
 
 export async function combine(...configs: Awaitable<TypedConfigItem | TypedConfigItem[]>[]): Promise<TypedConfigItem[]> {
   const resolved = await Promise.all(configs)
@@ -20,14 +12,14 @@ const HEADER = `/* eslint-disable */
 import type { Linter } from 'eslint'
 `
 
-export async function typegen(payload: Payload) {
+export async function typegen(payload: ConfigPayload[]) {
   let output = HEADER
   let typeNames: string[] = []
 
   // Build rules types for each config source
   let definition = ''
   for (let index = 0; index < payload.length; index++) {
-    const { configConstructor, internal } = payload[index]
+    const { builder, internal } = payload[index]
 
     let resolved: Awaitable<TypedConfigItem | TypedConfigItem[]>[]
 
@@ -40,11 +32,11 @@ export async function typegen(payload: Payload) {
             },
           },
         },
-        configConstructor()
+        builder()
       ]
     } else {
       resolved = [
-        configConstructor()
+        builder()
       ]
     }
 

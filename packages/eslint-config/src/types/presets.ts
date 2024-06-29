@@ -5,4 +5,7 @@ import type { ConfigBuilder, ConfigNames } from '@/types'
  */
 export type PresetName = 'vanilla'
 
+/**
+ * Preset List
+ */
 export type Presets = Record<PresetName, ConfigNames[]>
