@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint'
 import type { Options, PresetName } from '@/types'
-import type { AllRules, ESRules, StyleRules } from './rules'
+import type { AllRules, ESRules, StyleRules, TSRules } from './rules'
 
 // all builder under src/configs fit this pattern
 export type ConfigBuilder = (options?: Object, preset?: PresetName) => Promise<TypedConfigItem[]>
@@ -31,3 +31,5 @@ export type AllConfigItem = TypedConfigItem<AllRules>
 export type StyleConfigItem = TypedConfigItem<StyleRules>
 
 export type ESConfigItem = TypedConfigItem<ESRules>
+
+export type TSConfigItem = TypedConfigItem<TSRules>

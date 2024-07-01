@@ -64,18 +64,18 @@ export async function typegen(payload: ConfigPayload[]) {
     }
   }
 
-  output += `
-declare module 'eslint' {
-  namespace Linter {
-    interface RulesRecord extends ${ruleTypes} {}
-  }
-}
-`
+//   output += `
+// declare module 'eslint' {
+//   namespace Linter {
+//     interface RulesRecord extends ${ruleTypes} {}
+//   }
+// }
+// `
 
   output += definition
 
   output += `\n
-export type AllRules = ${ruleTypes.replace(', ', ' & ')}
+export type AllRules = ${ruleTypes.replaceAll(', ', ' & ')}
 `
 
   return output

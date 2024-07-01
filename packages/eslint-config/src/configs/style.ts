@@ -40,9 +40,9 @@ export async function style(
     ...styleOptions
   }
 
-  const stylistic = await interopDefault(import('@stylistic/eslint-plugin'))
+  const pluginStylistic = await interopDefault(import('@stylistic/eslint-plugin'))
 
-  const config = stylistic.configs.customize({
+  const config = pluginStylistic.configs.customize({
     flat: true,
     pluginName: 'stylistic',
     indent,
@@ -56,7 +56,7 @@ export async function style(
     {
       name: 'alphayou/style/rules',
       plugins: {
-        stylistic
+        stylistic: pluginStylistic
       },
       rules: {
         ...config.rules,

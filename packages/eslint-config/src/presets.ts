@@ -4,5 +4,6 @@ export const presets: Presets = {
   'vanilla': [
     'style',
     'ecmascript',
+    'typescript',
   ]
 }

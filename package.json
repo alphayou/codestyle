@@ -19,10 +19,11 @@
     "@types/node": "^20.14.9",
     "bumpp": "^9.4.1",
     "changelogithub": "^0.13.7",
-    "eslint": "^9.5.0",
+    "eslint": "^9.6.0",
     "eslint-typegen": "^0.2.4",
     "esno": "^4.7.0",
     "pnpm": "^9.4.0",
+    "taze": "^0.13.9",
     "tsup": "^8.1.0",
     "typescript": "^5.5.2"
   }

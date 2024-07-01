@@ -1,5 +1,6 @@
 import type { PresetName } from '@/types'
 import type { StyleRules, ESRules } from './rules'
+import { ParserOptions } from '@typescript-eslint/parser'
 
 /**
  * Config constructor options
@@ -23,6 +24,11 @@ export interface Options {
    * - can't be disabled
    */
   ecmascript?: ESOptions
+
+  /**
+   * TypeScript linting tunner
+   */
+  typescript?: boolean | TSOptions
 }
 
 /**
@@ -74,3 +80,27 @@ export interface StyleOptions extends Overrides<StyleRules> {
  * ECMAScript linting options
  */
 export interface ESOptions extends Overrides<ESRules> {}
+
+/**
+ * TypeScript linting options
+ */
+export interface TSOptions extends Overrides {
+  /**
+   * TypeScript parser options
+   */
+  parserOptions?: Partial<ParserOptions>,
+
+  /**
+   * tsconfig.json path(s)
+   * - when this options is provided, type aware rules will be enabled.
+   */
+  tsconfig?: string | string[],
+
+  /**
+   * Type-aware linting globs
+   */
+  ta?: {
+    include?: string[],
+    exclude?: string[],
+  }
+}
