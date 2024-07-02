@@ -5,7 +5,7 @@ import { ParserOptions } from '@typescript-eslint/parser'
 /**
  * Config constructor options
  */
-export interface Options {
+export interface Options extends Ext {
   /**
    * Configs preset
    * - choose a pre-composed preset
@@ -16,6 +16,7 @@ export interface Options {
 
   /**
    * Code format style tuner
+   * @default true
    */
   style?: boolean | StyleOptions
 
@@ -27,6 +28,7 @@ export interface Options {
 
   /**
    * TypeScript linting tunner
+   * @default true
    */
   typescript?: boolean | TSOptions
 }
@@ -39,6 +41,18 @@ export interface Overrides<T = {}> {
    * Rules Overrides
    */
   overrides?: T
+}
+
+/**
+ * Components extensions customization
+ */
+export interface Ext {
+  /**
+   * Additional components extensions
+   * @example ['vue']
+   * @default []
+   */
+  exts?: string[]
 }
 
 /**

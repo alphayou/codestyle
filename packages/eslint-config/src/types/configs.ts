@@ -6,7 +6,7 @@ import type { AllRules, ESRules, StyleRules, TSRules } from './rules'
 export type ConfigBuilder = (options?: Object, preset?: PresetName) => Promise<TypedConfigItem[]>
 
 // the main options key name is almost the same as all configs name, just cut other options
-export type ConfigNames = Exclude<keyof Options, 'preset'>
+export type ConfigNames = Exclude<keyof Options, 'preset' | 'exts'>
 
 export interface ConfigPayload {
   // for typegen

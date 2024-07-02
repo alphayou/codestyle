@@ -4,10 +4,10 @@ import type { ESConfigItem, Options, PresetName } from '@/types'
 
 export async function ecmascript(
   options: Options['ecmascript'] = {},
-  _preset?: PresetName
+  _preset?: PresetName,
 ): Promise<ESConfigItem[]> {
   const {
-    overrides = {}
+    overrides = {},
   } = options
 
   return [
@@ -26,8 +26,8 @@ export async function ecmascript(
           sourceType: 'module',
           ecmaFeatures: {
             jsx: true,
-          }
-        }
+          },
+        },
       },
       linterOptions: {
         reportUnusedDisableDirectives: true,
@@ -38,17 +38,17 @@ export async function ecmascript(
       rules: {
         // common
         'block-scoped-var': 'error',
-        'complexity': ['error', 3],
+        'complexity': ['error', 20],
         'consistent-return': 'error',
         // 'curly': 'error',
         'dot-notation': ['error', { allowKeywords: true }],
         'eqeqeq': 'error',
-        "logical-assignment-operators": 'warn',
+        'logical-assignment-operators': 'warn',
         'max-depth': ['error', 3],
 
         // class
         'accessor-pairs': ['error', { enforceForClassMembers: true, setWithoutGet: true }],
-        "class-methods-use-this": 'error',
+        'class-methods-use-this': 'error',
         'constructor-super': 'error',
         'getter-return': 'error',
         'grouped-accessor-pairs': ['error', 'getBeforeSet'],
@@ -113,7 +113,6 @@ export async function ecmascript(
         'no-misleading-character-class': 'error',
         'no-multi-str': 'error',
         'no-negated-condition': 'error',
-        'no-ternary': 'error',
         'no-new-func': 'error',
         'no-new-native-nonconstructor': 'error',
         'no-new-wrappers': 'error',
@@ -228,8 +227,8 @@ export async function ecmascript(
             AssignmentExpression: {
               array: false,
               object: true,
-            }
-          }
+            },
+          },
         ],
         'prefer-exponentiation-operator': 'error',
         'prefer-numeric-literals': 'error',
@@ -260,8 +259,8 @@ export async function ecmascript(
         'vars-on-top': 'error',
         'yoda': ['error', 'never'],
 
-        ...overrides
-      }
+        ...overrides,
+      },
     },
     {
       name: 'alphayou/ecmascript/disables/cli',
@@ -269,7 +268,7 @@ export async function ecmascript(
       rules: {
         'no-console': 'off',
         'no-debugger': 'off',
-      }
-    }
+      },
+    },
   ]
 }

@@ -7,6 +7,8 @@
   "scripts": {
     "build": "pnpm run -r --filter=./packages/* build",
     "dev": "eslint-config-inspector",
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint . --fix",
     "typecheck": "pnpm run -r --filter=./packages/* typecheck",
     "release": "bumpp --no-push --recursive"
   },
@@ -25,6 +27,6 @@
     "pnpm": "^9.4.0",
     "taze": "^0.13.9",
     "tsup": "^8.1.0",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.3"
   }
 }

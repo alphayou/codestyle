@@ -15,6 +15,6 @@ export const configMap: ConfigMap = {
   },
   typescript: {
     typeName: 'TSRules',
-    builder: typescript
-  }
+    builder: typescript,
+  },
 }
