@@ -6,10 +6,10 @@ import type { AllConfigItem, Awaitable, ConfigNames, Options, PresetName } from 
  * ESLint config constructor
  */
 export async function alphayou(
-  options: Options = {}
+  options: Options = {},
 ): Promise<AllConfigItem[]> {
   const {
-    preset = 'vanilla'
+    preset = 'vanilla',
   } = options
 
   const configs = load(preset, options)
@@ -22,7 +22,7 @@ export async function alphayou(
 // todo: need optimize
 function load(name: PresetName, options: Options) {
   // target array
-  let resolved: Awaitable<AllConfigItem[]>[] = []
+  const resolved: Awaitable<AllConfigItem[]>[] = []
 
   // get preset
   const targetPreset = presets[name]
@@ -35,13 +35,14 @@ function load(name: PresetName, options: Options) {
     if (Object.hasOwn(options, key)) {
       resolved.push(configMap[key].builder(options[key], name))
       sharedKeys.push(key)
-    } else {
+    }
+    else {
       resolved.push(configMap[key].builder({}, name))
     }
   })
 
   // cut preset key from options
-  const { preset, ...filtered } = options
+  const { preset: _preset, ...filtered } = options
 
   // load other configs
   Object.entries(filtered).forEach(([key, configOptions]) => {

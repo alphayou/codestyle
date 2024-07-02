@@ -1,6 +1,7 @@
 import type { PresetName } from '@/types'
-import type { StyleRules, ESRules } from './rules'
+import type { ESRules, StyleRules } from './rules'
 import { ParserOptions } from '@typescript-eslint/parser'
+import { Linter } from 'eslint'
 
 /**
  * Config constructor options
@@ -31,12 +32,17 @@ export interface Options extends Ext {
    * @default true
    */
   typescript?: boolean | TSOptions
+
+  /**
+   * Ignores options
+   */
+  ignores?: boolean
 }
 
 /**
  * Specific Overrides
  */
-export interface Overrides<T = {}> {
+export interface Overrides<T = Linter.RulesRecord> {
   /**
    * Rules Overrides
    */
@@ -63,13 +69,13 @@ export interface StyleOptions extends Overrides<StyleRules> {
    * Indent spaces number
    * @default 2
    */
-  indent?: number,
+  indent?: number
 
   /**
    * Quotes style
    * @default 'single'
    */
-  quotes?: 'single' | 'double',
+  quotes?: 'single' | 'double'
 
   /**
    * Semicolon
@@ -81,7 +87,7 @@ export interface StyleOptions extends Overrides<StyleRules> {
    * Trailing comma
    * @default 'always-multiline'
    */
-  comma?: 'never'| 'always' | 'always-multiline' | 'only-multiline',
+  comma?: 'never' | 'always' | 'always-multiline' | 'only-multiline'
 
   /**
    * JSX supports
@@ -93,7 +99,7 @@ export interface StyleOptions extends Overrides<StyleRules> {
 /**
  * ECMAScript linting options
  */
-export interface ESOptions extends Overrides<ESRules> {}
+export type ESOptions = Overrides<ESRules>
 
 /**
  * TypeScript linting options
@@ -102,19 +108,19 @@ export interface TSOptions extends Overrides {
   /**
    * TypeScript parser options
    */
-  parserOptions?: Partial<ParserOptions>,
+  parserOptions?: Partial<ParserOptions>
 
   /**
    * tsconfig.json path(s)
    * - when this options is provided, type aware rules will be enabled.
    */
-  tsconfig?: string | string[],
+  tsconfig?: string | string[]
 
   /**
    * Type-aware linting globs
    */
   ta?: {
-    include?: string[],
-    exclude?: string[],
+    include?: string[]
+    exclude?: string[]
   }
 }

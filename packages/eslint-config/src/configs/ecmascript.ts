@@ -264,7 +264,7 @@ export async function ecmascript(
     },
     {
       name: 'alphayou/ecmascript/disables/cli',
-      files: [`scripts/${GLOB_SRC}`, `cli.${GLOB_SRC_EXT}`],
+      files: [`**/scripts/${GLOB_SRC}`, `**/cli.${GLOB_SRC_EXT}`],
       rules: {
         'no-console': 'off',
         'no-debugger': 'off',

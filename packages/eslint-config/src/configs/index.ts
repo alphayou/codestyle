@@ -2,6 +2,7 @@ import { ConfigMap } from '@/types'
 import { style } from './style'
 import { ecmascript } from './ecmascript'
 import { typescript } from './typescript'
+import { ignores } from './ignores'
 
 export const configMap: ConfigMap = {
   style: {
@@ -16,5 +17,9 @@ export const configMap: ConfigMap = {
   typescript: {
     typeName: 'TSRules',
     builder: typescript,
+  },
+  ignores: {
+    typeName: 'IgnoresRules',
+    builder: ignores,
   },
 }

@@ -14,14 +14,15 @@ import type { Linter } from 'eslint'
 
 export async function typegen(payload: ConfigPayload[]) {
   let output = HEADER
-  let typeNames: string[] = []
+  const typeNames: string[] = []
 
   // Build rules types for each config source
   let definition = ''
-  for (let index = 0; index < payload.length; index++) {
-    const { builder, internal } = payload[index]
 
-    let resolved: Awaitable<TypedConfigItem | TypedConfigItem[]>[]
+  const getTypes = payload.map(async (item) => {
+    const { builder, internal, typeName } = item
+
+    let resolved: Awaitable<TypedConfigItem | TypedConfigItem[]>[] = []
 
     if (internal) {
       resolved = [
@@ -32,45 +33,49 @@ export async function typegen(payload: ConfigPayload[]) {
             },
           },
         },
-        builder()
+        builder(),
       ]
-    } else {
-      resolved = [
-        builder()
-      ]
+    }
+    else {
+      resolved = [builder()]
     }
 
     const configs = await combine(...resolved)
 
-    definition += await flatConfigsToRulesDTS(configs, {
-      exportTypeName: payload[index].typeName,
+    typeNames.push(typeName)
+
+    return await flatConfigsToRulesDTS(configs, {
+      exportTypeName: typeName,
       includeIgnoreComments: false,
       includeTypeImports: false,
       includeAugmentation: false,
     })
+  })
 
-    typeNames.push(payload[index].typeName)
-  }
+  const types = await Promise.all(getTypes)
+
+  definition += types
 
   let ruleTypes = ''
   // Build Augmentation
   for (let index = 0; index < typeNames.length; index++) {
     const typeName = typeNames[index]
 
-    if (index !== typeNames.length - 1) {
-      ruleTypes += `${typeName}, `
-    } else {
+    if (index === typeNames.length - 1) {
       ruleTypes += typeName
+    }
+    else {
+      ruleTypes += `${typeName}, `
     }
   }
 
-//   output += `
-// declare module 'eslint' {
-//   namespace Linter {
-//     interface RulesRecord extends ${ruleTypes} {}
-//   }
-// }
-// `
+  //   output += `
+  // declare module 'eslint' {
+  //   namespace Linter {
+  //     interface RulesRecord extends ${ruleTypes} {}
+  //   }
+  // }
+  // `
 
   output += definition
 

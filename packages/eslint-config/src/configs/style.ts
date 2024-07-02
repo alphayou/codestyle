@@ -1,4 +1,4 @@
-import type { Options, PresetName ,StyleConfigItem, StyleOptions } from '@/types'
+import type { Options, PresetName, StyleConfigItem, StyleOptions } from '@/types'
 import { interopDefault } from '@/utils'
 
 const defaults: StyleOptions = {
@@ -6,7 +6,7 @@ const defaults: StyleOptions = {
   quotes: 'single',
   semi: false,
   comma: 'always-multiline',
-  jsx: true
+  jsx: true,
 }
 
 /**
@@ -14,14 +14,14 @@ const defaults: StyleOptions = {
  */
 export async function style(
   options: Options['style'] = {},
-  _preset?: PresetName
+  _preset?: PresetName,
 ): Promise<StyleConfigItem[]> {
   // parse options
   const styleOptions = options === false
-   ? false
-   : typeof options === 'object'
-     ? options
-     : {}
+    ? false
+    : typeof options === 'object'
+      ? options
+      : {}
 
   // set options to false to disable config
   if (styleOptions === false) {
@@ -34,10 +34,10 @@ export async function style(
     semi,
     comma: commaDangle,
     jsx,
-    overrides = {}
+    overrides = {},
   } = {
     ...defaults,
-    ...styleOptions
+    ...styleOptions,
   }
 
   const pluginStylistic = await interopDefault(import('@stylistic/eslint-plugin'))
@@ -56,12 +56,12 @@ export async function style(
     {
       name: 'alphayou/style/rules',
       plugins: {
-        stylistic: pluginStylistic
+        stylistic: pluginStylistic,
       },
       rules: {
         ...config.rules,
-        ...overrides
-      }
-    }
+        ...overrides,
+      },
+    },
   ]
 }

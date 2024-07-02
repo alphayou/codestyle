@@ -1,4 +1,4 @@
-import type { ConfigBuilder, ConfigNames } from '@/types'
+import type { ConfigNames } from '@/types'
 
 /**
  * Preset name

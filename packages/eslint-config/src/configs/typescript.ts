@@ -108,7 +108,26 @@ export async function typescript(
             { '@typescript-eslint': 'ts' },
           )
           : {}),
+
+        'no-dupe-class-members': 'off',
+        'no-loss-of-precision': 'off',
+        'no-redeclare': 'off',
+        'no-use-before-define': 'off',
+        'no-useless-constructor': 'off',
+
+        'ts/no-unused-vars': 'off',
+
         ...overrides,
+      },
+    },
+    {
+      files: ['**/*.d.?([cm])ts'],
+      name: 'alphayou/typescript/disables/dts',
+      rules: {
+        'eslint-comments/no-unlimited-disable': 'off',
+        'import/no-duplicates': 'off',
+        'no-restricted-syntax': 'off',
+        'unused-imports/no-unused-vars': 'off',
       },
     },
   ]

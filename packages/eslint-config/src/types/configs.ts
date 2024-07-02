@@ -3,14 +3,15 @@ import type { Options, PresetName } from '@/types'
 import type { AllRules, ESRules, StyleRules, TSRules } from './rules'
 
 // all builder under src/configs fit this pattern
-export type ConfigBuilder = (options?: Object, preset?: PresetName) => Promise<TypedConfigItem[]>
+// eslint-disable-next-line ts/no-explicit-any
+export type ConfigBuilder = (options?: any, preset?: PresetName) => Promise<TypedConfigItem[]>
 
 // the main options key name is almost the same as all configs name, just cut other options
 export type ConfigNames = Exclude<keyof Options, 'preset' | 'exts'>
 
 export interface ConfigPayload {
   // for typegen
-  typeName: string,
+  typeName: string
   // used across project to access config
   builder: ConfigBuilder
   // for typegen
@@ -19,8 +20,9 @@ export interface ConfigPayload {
 
 export type ConfigMap = Record<ConfigNames, ConfigPayload>
 
-export type TypedConfigItem<T = {}> = Omit<Linter.FlatConfig<Linter.RulesRecord & T>, 'plugins'> & {
+export type TypedConfigItem<T = Linter.RulesRecord> = Omit<Linter.FlatConfig<Linter.RulesRecord & T>, 'plugins'> & {
   // relax plugin type restriction
+  // eslint-disable-next-line ts/no-explicit-any
   plugins?: Record<string, any>
 }
 
@@ -33,3 +35,5 @@ export type StyleConfigItem = TypedConfigItem<StyleRules>
 export type ESConfigItem = TypedConfigItem<ESRules>
 
 export type TSConfigItem = TypedConfigItem<TSRules>
+
+export type IgnoresConfigItem = TypedConfigItem

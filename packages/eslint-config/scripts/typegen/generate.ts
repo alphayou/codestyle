@@ -10,6 +10,6 @@ const dts = await typegen(Object.values(configMap))
 
 await writeFile('./src/types/rules.d.ts', dts)
 
-const finishedTime = performance.now() 
+const finishedTime = performance.now()
 
 console.log('\x1b[32m%s\x1b[0m', `Types generated in ${(finishedTime - startedTime).toFixed(2)}ms \n`)

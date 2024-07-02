@@ -1,9 +1,10 @@
 import type { Presets } from './types'
 
 export const presets: Presets = {
-  'vanilla': [
+  vanilla: [
     'style',
     'ecmascript',
     'typescript',
-  ]
+    'ignores',
+  ],
 }
