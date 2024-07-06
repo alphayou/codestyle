@@ -5,3 +5,4 @@ node_modules
 dist
 rules.d.ts
 tsconfig.tsbuildinfo
+.eslintcache
