@@ -1,7 +1,7 @@
 {
   "name": "@alphayou/cs",
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Alpha You's ESLint config preset",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
