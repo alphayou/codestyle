@@ -9,6 +9,8 @@
     "dev": "eslint-config-inspector",
     "lint": "eslint . --cache",
     "lint:fix": "eslint . --fix",
+    "dep": "taze -r",
+    "dep:w": "taze -rw",
     "typecheck": "pnpm run -r --filter=./packages/* typecheck",
     "release": "bumpp --no-push --recursive"
   },
@@ -18,7 +20,7 @@
     "@alphayou/cs": "workspace:*",
     "@eslint/config-inspector": "^0.5.1",
     "@types/eslint": "^8.56.10",
-    "@types/node": "^20.14.9",
+    "@types/node": "^20.14.10",
     "bumpp": "^9.4.1",
     "changelogithub": "^0.13.7",
     "eslint": "^9.6.0",
