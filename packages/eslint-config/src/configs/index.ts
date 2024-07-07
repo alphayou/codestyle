@@ -1,4 +1,4 @@
-import { ConfigMap } from '@/types'
+import type { ConfigMap } from '@/types'
 import { style } from './style'
 import { ecmascript } from './ecmascript'
 import { typescript } from './typescript'

@@ -1,7 +1,7 @@
 import type { PresetName } from '@/types'
 import type { ESRules, StyleRules } from './rules'
-import { ParserOptions } from '@typescript-eslint/parser'
-import { Linter } from 'eslint'
+import type { ParserOptions } from '@typescript-eslint/parser'
+import type { Linter } from 'eslint'
 
 /**
  * Config constructor options

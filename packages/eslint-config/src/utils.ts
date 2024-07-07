@@ -3,7 +3,7 @@ import type { Awaitable } from '@/types/utils'
 // MIT License @antfu/eslint-config
 export async function interopDefault<T>(m: Awaitable<T>): Promise<T extends { default: infer U } ? U : T> {
   const resolved = await m
-  // eslint-disable-next-line ts/no-explicit-any
+
   return (resolved as any).default || resolved
 }
 
@@ -13,7 +13,6 @@ export function toArray<T>(value: T | T[]): T[] {
 }
 
 // MIT License @antfu/eslint-config
-// eslint-disable-next-line ts/no-explicit-any
 export function renameRules(rules: Record<string, any>, map: Record<string, string>) {
   return Object.fromEntries(
     Object.entries(rules)

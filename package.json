@@ -12,7 +12,8 @@
     "dep": "taze -r",
     "dep:w": "taze -rw",
     "typecheck": "pnpm run -r --filter=./packages/* typecheck",
-    "release": "bumpp --no-push --recursive"
+    "release": "bumpp --no-push --recursive",
+    "prepare": "simple-git-hooks"
   },
   "author": "Amano Fuon <amanofuon@gmail.com>",
   "license": "MIT",
@@ -26,9 +27,19 @@
     "eslint": "^9.6.0",
     "eslint-typegen": "^0.2.4",
     "esno": "^4.7.0",
+    "lint-staged": "^15.2.7",
     "pnpm": "^9.4.0",
+    "simple-git-hooks": "^2.11.1",
     "taze": "^0.13.9",
     "tsup": "^8.1.0",
     "typescript": "^5.5.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": [
+      "pnpm lint:fix"
+    ]
   }
 }
