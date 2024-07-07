@@ -54,7 +54,7 @@ export async function typegen(payload: ConfigPayload[]) {
 
   const types = await Promise.all(getTypes)
 
-  definition += types
+  definition += types.join('\n')
 
   let ruleTypes = ''
   // Build Augmentation
