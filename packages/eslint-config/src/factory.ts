@@ -14,9 +14,9 @@ export async function alphayou(
 
   const configs = load(preset, options)
 
-  const resolved = await Promise.all(configs)
+  const resolved = (await Promise.all(configs)).flat()
 
-  return resolved.flat()
+  return normalize(resolved)
 }
 
 // todo: need optimize
@@ -52,4 +52,10 @@ function load(name: PresetName, options: Options) {
   })
 
   return resolved
+}
+
+// remove empty config object
+function normalize(payload: object[]) {
+  const output = payload.filter(value => Object.keys(value).length !== 0)
+  return output
 }
