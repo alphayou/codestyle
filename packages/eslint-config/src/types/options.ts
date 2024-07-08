@@ -1,5 +1,5 @@
 import type { PresetName } from '@/types'
-import type { ESRules, StyleRules } from './rules'
+import type { ESRules, JsoncRules, StyleRules } from './rules'
 import type { ParserOptions } from '@typescript-eslint/parser'
 import type { Linter } from 'eslint'
 
@@ -32,6 +32,11 @@ export interface Options extends Ext {
    * @default true
    */
   typescript?: boolean | TSOptions
+
+  /**
+   * Json/Jsonc linting tunner
+   */
+  jsonc?: boolean | JsoncOptions
 
   /**
    * Ignores options
@@ -123,4 +128,14 @@ export interface TSOptions extends Overrides {
     include?: string[]
     exclude?: string[]
   }
+}
+
+/**
+ * Json/Jsonc linting options
+ */
+export interface JsoncOptions extends Overrides<JsoncRules> {
+  /**
+   * Json/Jsonc formater
+   */
+  format?: boolean
 }

@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint'
 import type { Options, PresetName } from '@/types'
-import type { AllRules, ESRules, StyleRules, TSRules } from './rules'
+import type { AllRules, ESRules, IgnoresRules, JsoncRules, StyleRules, TSRules } from './rules'
 
 // all builder under src/configs fit this pattern
 
@@ -36,4 +36,6 @@ export type ESConfigItem = TypedConfigItem<ESRules>
 
 export type TSConfigItem = TypedConfigItem<TSRules>
 
-export type IgnoresConfigItem = TypedConfigItem
+export type IgnoresConfigItem = TypedConfigItem<IgnoresRules>
+
+export type JsoncConfigItem = TypedConfigItem<JsoncRules>

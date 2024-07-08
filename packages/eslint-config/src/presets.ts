@@ -5,6 +5,7 @@ export const presets: Presets = {
     'style',
     'ecmascript',
     'typescript',
+    'jsonc',
     'ignores',
   ],
 }

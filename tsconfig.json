@@ -8,13 +8,13 @@
     "allowJs": false,
     "checkJs": false,
     "esModuleInterop": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
   "include": [
-    "packages/**/*",
+    "packages/**/*"
   ],
   "exclude": [
     "**/node_modules",
-    "**/dist",
+    "**/dist"
   ]
 }
