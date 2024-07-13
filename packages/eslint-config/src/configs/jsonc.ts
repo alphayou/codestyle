@@ -200,6 +200,9 @@ export async function jsonc(
       name: 'alphayou/sort/tsconfig-json',
       files: ['**/tsconfig.json', '**/tsconfig.*.json'],
       rules: {
+        // add comma dangle
+        'jsonc/comma-dangle': ['error', 'always-multiline'],
+
         'jsonc/sort-keys': [
           'error',
           {
