@@ -3,21 +3,6 @@
   "type": "module",
   "version": "0.3.0",
   "description": "Alpha You's ESLint config preset",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "eslint-config"
-  ],
   "author": "Amano Fuon <amanofuon@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -26,6 +11,21 @@
     "directory": "packages/eslint-config"
   },
   "bugs": "https://github.com/alphayou/codestyle/issues",
+  "keywords": [
+    "eslint-config"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "readme": "https://github.com/alphayou/codestyle#readme",
   "publishConfig": {
     "access": "public",

@@ -1,9 +1,11 @@
 {
   "name": "@alphayou/codestyle-monorepo",
-  "private": true,
   "type": "module",
   "version": "0.3.0",
+  "private": true,
   "description": "Alpha You's codestyle monorepo",
+  "author": "Amano Fuon <amanofuon@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "build": "pnpm run -r --filter=./packages/* build",
     "dev": "eslint-config-inspector",
@@ -15,8 +17,6 @@
     "release": "bumpp --no-push --recursive",
     "prepare": "simple-git-hooks"
   },
-  "author": "Amano Fuon <amanofuon@gmail.com>",
-  "license": "MIT",
   "devDependencies": {
     "@alphayou/cs": "workspace:*",
     "@eslint/config-inspector": "^0.5.1",
