@@ -1,7 +1,7 @@
 {
   "name": "@alphayou/codestyle-monorepo",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "description": "Alpha You's codestyle monorepo",
   "author": "Amano Fuon <amanofuon@gmail.com>",
