@@ -1,0 +1,7 @@
+# Runtime and Dependencies
+node_modules
+
+# OS-specific files
+.DS_Store
+.Spotlight-V100
+.Trashes
