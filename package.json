@@ -5,5 +5,10 @@
   "version": "0.7.0",
   "description": "Alpha You's ESLint preset monorepo",
   "author": "Amano Fuon <amanofuon@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.5.3",
+    "pnpm": "^9.9.0",
+    "typescript": "^5.5.4"
+  }
 }
