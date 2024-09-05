@@ -1,4 +1,4 @@
-![Codestyle Banner](.github/assets/banner.png)
+![Codestyle Banner](.github/assets/banner.webp)
 
 ### Introduction
 
