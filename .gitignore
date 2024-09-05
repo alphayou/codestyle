@@ -1,6 +1,9 @@
 # Runtime and Dependencies
 node_modules
 
+# Development
+dist
+
 # OS-specific files
 .DS_Store
 .Spotlight-V100

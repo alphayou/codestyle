@@ -1,0 +1,27 @@
+{
+  "name": "@alphayou/cs",
+  "type": "module",
+  "version": "0.7.0",
+  "description": "Alpha You's ESLint config preset",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "eslint-config"
+  ],
+  "author": "Amano Fuon <amanofuon@gmail.com>",
+  "license": "MIT"
+}
