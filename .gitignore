@@ -3,6 +3,8 @@ node_modules
 
 # Development
 dist
+rules.d.ts
+specific.d.ts
 
 # OS-specific files
 .DS_Store

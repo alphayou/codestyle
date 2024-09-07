@@ -3,6 +3,13 @@
   "type": "module",
   "version": "0.7.0",
   "description": "Alpha You's ESLint config preset",
+  "homepage": "https://github.com/alphayou/codestyle",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alphayou/codestyle.git",
+    "directory": "packages/eslint-config"
+  },
+  "bugs": "https://github.com/alphayou/codestyle/issues",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -11,17 +18,24 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "typegen": "pnpm esno scripts/typegen/gen.ts",
+    "build": "pnpm typegen && tsup"
   },
   "keywords": [
     "eslint-config"
   ],
   "author": "Amano Fuon <amanofuon@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "globals": "^15.9.0"
+  },
+  "devDependencies": {
+    "eslint-typegen": "^0.3.1"
+  }
 }
