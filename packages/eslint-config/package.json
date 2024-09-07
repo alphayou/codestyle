@@ -25,7 +25,8 @@
   },
   "scripts": {
     "typegen": "pnpm esno scripts/typegen/gen.ts",
-    "build": "pnpm typegen && tsup"
+    "build": "pnpm typegen && tsup",
+    "prepare": "pnpm typegen"
   },
   "keywords": [
     "eslint-config"

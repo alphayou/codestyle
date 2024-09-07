@@ -51,6 +51,8 @@ for (const payload of configurations) {
   target += dts + '\n\n'
 
   consola.success(`[${count}/${totalCount}] Generated ${payload.typingName}`)
+
+  count++
 }
 
 consola.success('Generated all configurations')
