@@ -61,7 +61,7 @@ consola.start('Writing to file...')
 await writeFile('src/types/rules.d.ts', target)
 consola.success('Wrote to file')
 
-console.log('\n')
+consola.info('ESLint Typed Configs generator')
 
 // construct specific TypedConfigs
 let typingList = '// Alpha You\'s ESLint Typed Configs - autogen\n'
@@ -70,7 +70,7 @@ typingList += 'import type { TypedConfigItem } from \'@/types/configs\'\n\n'
 consola.start('Generating TypedConfigs...')
 for (const typeName of exportTypeNames) {
   typingList += `import type { ${typeName}Rules } from '@/types/rules'\n`
-  typingList += `export type ${'Typed' + typeName} = TypedConfigItem<${typeName}Rules>\n`
+  typingList += `export type ${'Typed' + typeName} = TypedConfigItem<${typeName}Rules>\n\n`
 }
 consola.success('Generated TypedConfigs')
 
