@@ -1,15 +1,16 @@
-import type { TypedConfigItem } from './configs'
+import type { Linter } from 'eslint'
+import type { ECMAScriptRules } from './rules'
 
 /**
  * @name Overrides
  * @description base options for all configs
  */
-export interface Overrides {
+export interface Overrides<T = {}> {
   /**
    * @name overrides
    * @description overrides for specific rules
    */
-  overrides?: TypedConfigItem['rules']
+  overrides?: T
 }
 
 /**
@@ -28,7 +29,7 @@ export interface EditorStatus {
  * @name ECMAScriptOptions
  * @description Options for ECMAScript configs
  */
-export type ECMAScriptOptions = Overrides & EditorStatus
+export type ECMAScriptOptions = Overrides<ECMAScriptRules> & EditorStatus
 
 /**
  * @name Options
