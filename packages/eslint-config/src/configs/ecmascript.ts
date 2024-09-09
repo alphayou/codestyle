@@ -9,10 +9,7 @@ export async function ecmascript(
   // parse options
   const { overrides, isEditor } = options
 
-  let overriding = false
-  if (overrides && overrides.length !== 0) {
-    overriding = true
-  }
+  const overriding = overrides && Object.keys(overrides).length > 0;
 
   return [
     {
