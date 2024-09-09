@@ -29,3 +29,15 @@ export interface EditorStatus {
  * @description Options for ECMAScript configs
  */
 export type ECMAScriptOptions = Overrides & EditorStatus
+
+/**
+ * @name Options
+ * @description ALpha You's ESLint configs constructor options
+ */
+export interface Options {
+  /**
+   * @name ECMAScriptOptions
+   * @description ECMAScript options, can only be overridden
+   */
+  ecmascript?: ECMAScriptOptions
+}

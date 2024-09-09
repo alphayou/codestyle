@@ -9,3 +9,5 @@ export const configurations: ConfigsTypingMeta[] = [
     internalRules: true,
   }
 ]
+
+export { ecmascript }

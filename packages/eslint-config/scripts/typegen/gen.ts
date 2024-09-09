@@ -50,6 +50,18 @@ for (const payload of configurations) {
 
   target += dts + '\n\n'
 
+  let allDefinitions = '// Combination\n'
+  allDefinitions += 'export type AllRules = '
+
+  for (let i = 0; i < exportTypeNames.length; i++) {
+    allDefinitions += `${exportTypeNames[i]}Rules`
+    allDefinitions += i === exportTypeNames.length - 1 ? '' : ' & '
+  }
+
+  target += allDefinitions + '\n\n'
+
+  exportTypeNames.push('All')
+
   consola.success(`[${count}/${totalCount}] Generated ${payload.typingName}`)
 
   count++
