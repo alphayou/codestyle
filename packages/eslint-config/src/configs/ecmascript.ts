@@ -95,7 +95,6 @@ export async function ecmascript(
         'no-duplicate-case': 'error',
         'no-else-return': ['error', { allowElseIf: true }],
         'no-empty-character-class': 'error',
-        'no-empty-class': 'error',
         'no-empty-pattern': 'error',
         "no-empty-function": ["error", { "allow": ["arrowFunctions"] }],
         'no-empty-static-block': 'error',

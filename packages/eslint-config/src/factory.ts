@@ -17,5 +17,8 @@ export async function alphayou(
     })
   )
 
-  return []
+  // resolve all configs
+  const target = await Promise.all(configs)
+
+  return target.flat()
 }

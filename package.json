@@ -6,7 +6,13 @@
   "description": "Alpha You's ESLint preset monorepo",
   "author": "Amano Fuon <amanofuon@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "pnpm -r run build",
+    "dev": "pnpm eslint-config-inspector"
+  },
   "devDependencies": {
+    "@alphayou/cs": "workspace:*",
+    "@eslint/config-inspector": "^0.5.4",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.5.3",
     "consola": "^3.2.3",
