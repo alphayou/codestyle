@@ -16,6 +16,12 @@ export interface ConfigsTypingMeta {
   typingName: string
 
   /**
+   * @name linking
+   * @description link with another config
+   */
+  linking?: string[]
+
+  /**
    * @name config
    * @description the function to get the config object
    * @returns the promised config object

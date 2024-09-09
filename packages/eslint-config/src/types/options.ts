@@ -25,11 +25,35 @@ export interface EditorStatus {
   isEditor?: boolean
 }
 
+export interface Files {
+  /**
+   * @name files
+   * @description files to lint (glob patterns)
+   */
+  files?: string[]
+}
+
+export interface Exts {
+  /**
+   * @name componentExts
+   * @description Additional extensions for components.
+   *
+   * @example ['vue']
+   */
+  exts?: string[]
+}
+
 /**
  * @name ECMAScriptOptions
  * @description Options for ECMAScript configs
  */
 export type ECMAScriptOptions = Overrides<ECMAScriptRules> & EditorStatus
+
+/**
+ * @name TypeScriptOptions
+ * @description Options for TypeScript configs
+ */
+export type TypeScriptOptions = Overrides & Files & Exts
 
 /**
  * @name Options
@@ -41,4 +65,10 @@ export interface Options {
    * @description ECMAScript options, can only be overridden
    */
   ecmascript?: ECMAScriptOptions
+
+  /**
+   * @name TypeScriptOptions
+   * @description TypeScript options
+   */
+  typescript?: boolean | TypeScriptOptions
 }
