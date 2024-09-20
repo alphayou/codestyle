@@ -11,19 +11,19 @@ interface RulesTypingPayload {
 
 export async function genRulesTyping(configurations: ConfigsTypingMeta[]): Promise<RulesTypingPayload> {
   // initialize file content
-  let target = '/* eslint-disable */\n/* prettier-ignore */\n\n'
+  let target = '/* prettier-ignore */\n\n'
   target += '// Alpha You\'s ESLint Configurations - autogen\n'
   target += 'import type { Linter } from \'eslint\'\n'
 
   // progress counter
-  let count = 1
+  const count = 1
   const totalCount = configurations.length
 
   // exportTypeNames array
-  const exportTypeNames = []
+  const exportTypeNames: string[] = []
 
-  for (const payload of configurations) {
-    consola.start(`[${count}/${totalCount}] Generating for ${payload.typingName}...`)
+  const results = await Promise.all(configurations.map(async (payload, index) => {
+    consola.start(`[${index + 1}/${totalCount}] Generating for ${payload.typingName}...`)
     const workingConfigs = await combine(
       payload.config(),
       // include internal rules if specified
@@ -38,34 +38,36 @@ export async function genRulesTyping(configurations: ConfigsTypingMeta[]): Promi
         : {}
     )
 
-    let dts = await flatConfigsToRulesDTS(workingConfigs, {
+    const dts = await flatConfigsToRulesDTS(workingConfigs, {
       includeAugmentation: false,
       includeTypeImports: false,
       includeIgnoreComments: false,
-      exportTypeName: payload.typingName + 'Rules',
+      exportTypeName: `${payload.typingName}Rules`,
     })
 
     // add to exportTypeNames
     exportTypeNames.push(payload.typingName)
 
-    target += dts + '\n\n'
+    let result = `${dts}\n\n`
 
     // resolve linking
     if (payload.linking) {
       consola.start(`(${payload.typingName}) Resolving rules linking...`)
-      target += `// (${payload.typingName}) Linking\n`
+      result += `// (${payload.typingName}) Linking\n`
       for (const link of payload.linking) {
-        target += `export interface ${payload.typingName}Rules extends ${link}Rules {}\n`
+        result += `export interface ${payload.typingName}Rules extends ${link}Rules {}\n`
       }
       consola.success(`(${payload.typingName}) Linked`)
     }
 
-    target += '\n'
+    result += '\n'
 
-    consola.success(`[${count}/${totalCount}] Generated ${payload.typingName}`)
+    consola.success(`[${index + 1}/${totalCount}] Generated ${payload.typingName}`)
 
-    count++
-  }
+    return result
+  }))
+
+  target += results.join('')
 
   // generate AllRules
   let allDefinitions = '// Combination\n'
@@ -76,7 +78,7 @@ export async function genRulesTyping(configurations: ConfigsTypingMeta[]): Promi
     allDefinitions += i === exportTypeNames.length - 1 ? '' : ' & '
   }
 
-  target += allDefinitions + '\n\n'
+  target += `${allDefinitions}\n\n`
 
   exportTypeNames.push('All')
 

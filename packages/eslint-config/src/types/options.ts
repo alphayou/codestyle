@@ -5,7 +5,7 @@ import type { ECMAScriptRules } from './rules'
  * @name Overrides
  * @description base options for all configs
  */
-export interface Overrides<T = {}> {
+export interface Overrides<T = object> {
   /**
    * @name overrides
    * @description overrides for specific rules
@@ -53,7 +53,37 @@ export type ECMAScriptOptions = Overrides<ECMAScriptRules> & EditorStatus
  * @name TypeScriptOptions
  * @description Options for TypeScript configs
  */
-export type TypeScriptOptions = Overrides & Files & Exts
+export type TypeScriptOptions = Overrides & Files & Exts & {
+  /**
+   * @name tsconfigPath
+   * @description path to the tsconfig file
+   */
+  tsconfigPath?: string
+
+  /**
+   * @name filesTypeAware
+   * @description files to lint with type-aware parser (glob patterns)
+   */
+  filesTypeAware?: string[]
+
+  /**
+   * @name ignoresTypeAware
+   * @description files to ignore with type-aware parser (glob patterns)
+   */
+  ignoresTypeAware?: string[]
+}
+
+/**
+ * @name IgnoresOptions
+ * @description Options for Ignores configs
+ */
+export interface IgnoresOptions {
+  /**
+   * @name ignores
+   * @description files to ignore (glob patterns)
+   */
+  userIgnores?: string[]
+}
 
 /**
  * @name Options
@@ -71,4 +101,16 @@ export interface Options {
    * @description TypeScript options
    */
   typescript?: boolean | TypeScriptOptions
+
+  /**
+   * @name IgnoresOptions
+   * @description Options for Ignores configs
+   */
+  ignores?: IgnoresOptions
+
+  /**
+   * @name Exts
+   * @description Additional extensions for components
+   */
+  exts?: string[]
 }

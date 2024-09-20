@@ -9,6 +9,8 @@
   "scripts": {
     "build": "pnpm -r run build",
     "dev": "pnpm eslint-config-inspector",
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint . --cache --fix",
     "deps": "taze -r",
     "deps:w": "taze -r -w"
   },
