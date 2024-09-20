@@ -8,18 +8,21 @@
   "license": "MIT",
   "scripts": {
     "build": "pnpm -r run build",
-    "dev": "pnpm eslint-config-inspector"
+    "dev": "pnpm eslint-config-inspector",
+    "deps": "taze -r",
+    "deps:w": "taze -r -w"
   },
   "devDependencies": {
     "@alphayou/cs": "workspace:*",
     "@eslint/config-inspector": "^0.5.4",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^22.5.3",
+    "@types/node": "^22.5.5",
     "consola": "^3.2.3",
-    "eslint": "^9.9.1",
+    "eslint": "^9.10.0",
     "esno": "^4.7.0",
-    "pnpm": "^9.9.0",
-    "tsup": "^8.2.4",
-    "typescript": "^5.5.4"
+    "pnpm": "^9.10.0",
+    "taze": "^0.16.9",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2"
   }
 }
