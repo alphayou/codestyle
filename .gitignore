@@ -3,6 +3,7 @@ node_modules
 
 # Development
 dist
+.eslintcache
 rules.d.ts
 specific.d.ts
 
