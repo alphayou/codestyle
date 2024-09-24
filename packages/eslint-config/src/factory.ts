@@ -26,11 +26,6 @@ export async function alphayou(
     ecmascript({
       overrides: resolveOverrides(options, 'ecmascript'),
     }),
-    typescript({
-      exts,
-      ...resolveOptions(options, 'typescript'),
-      overrides: resolveOverrides(options, 'typescript'),
-    }),
     style({
       ...resolveOptions(options, 'style'),
       overrides: resolveOverrides(options, 'style'),
@@ -39,6 +34,16 @@ export async function alphayou(
       ...resolveOptions(options, 'ignores'),
     }),
   )
+
+  if (isTypeScriptEnable) {
+    configs.push(
+      typescript({
+        exts,
+        ...resolveOptions(options, 'typescript'),
+        overrides: resolveOverrides(options, 'typescript'),
+      }),
+    )
+  }
 
   // resolve all configs
   const target = await Promise.all(configs)
