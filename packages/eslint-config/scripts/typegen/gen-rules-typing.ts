@@ -29,13 +29,13 @@ export async function genRulesTyping(configurations: ConfigsTypingMeta[]): Promi
       // include internal rules if specified
       payload.internalRules
         ? {
-          plugins: {
-            '': {
-              rules: Object.fromEntries(builtinRules.entries()),
-            }
+            plugins: {
+              '': {
+                rules: Object.fromEntries(builtinRules.entries()),
+              },
+            },
           }
-        }
-        : {}
+        : {},
     )
 
     const dts = await flatConfigsToRulesDTS(workingConfigs, {

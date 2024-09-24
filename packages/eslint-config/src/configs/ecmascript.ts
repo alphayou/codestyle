@@ -4,12 +4,12 @@ import type { TypedECMAScript } from '@/types/specific'
 import type { ECMAScriptOptions } from '@/types/options'
 
 export async function ecmascript(
-  options: ECMAScriptOptions = {}
+  options: ECMAScriptOptions = {},
 ): Promise<TypedECMAScript[]> {
   // parse options
   const { overrides, isEditor } = options
 
-  const overriding = overrides && Object.keys(overrides).length > 0;
+  const overriding = overrides && Object.keys(overrides).length > 0
 
   return [
     {
@@ -28,8 +28,8 @@ export async function ecmascript(
           ecmaFeatures: {
             jsx: true,
           },
-        }
-      }
+        },
+      },
     },
     {
       name: 'alphayou/ecmascript/rules',
@@ -93,7 +93,7 @@ export async function ecmascript(
         'no-else-return': ['error', { allowElseIf: true }],
         'no-empty-character-class': 'error',
         'no-empty-pattern': 'error',
-        "no-empty-function": ["error", { "allow": ["arrowFunctions"] }],
+        'no-empty-function': ['error', { allow: ['arrowFunctions'] }],
         'no-empty-static-block': 'error',
         'no-empty': 'warn',
         'no-eq-null': 'error',
@@ -104,7 +104,7 @@ export async function ecmascript(
         'no-extra-boolean-cast': 'error',
         'no-extra-label': 'error',
         'no-fallthrough': 'error',
-        "no-func-assign": "error",
+        'no-func-assign': 'error',
         'no-global-assign': 'error',
         'no-implied-eval': 'error',
         'no-import-assign': 'error',
@@ -168,17 +168,17 @@ export async function ecmascript(
         'valid-typeof': ['error', { requireStringLiterals: true }],
         'vars-on-top': 'error',
         'yoda': ['error', 'never'],
-      }
+      },
     },
     ...overriding
       ? [
-        {
-          name: 'alphayou/ecmascript/overrides',
-          rules: {
-            ...overrides
-          }
-        }
-      ]
-      : []
+          {
+            name: 'alphayou/ecmascript/overrides',
+            rules: {
+              ...overrides,
+            },
+          },
+        ]
+      : [],
   ]
 }

@@ -7,6 +7,7 @@
   "author": "Amano Fuon <amanofuon@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "prepare": "simple-git-hooks",
     "build": "pnpm -r run build",
     "dev": "pnpm eslint-config-inspector",
     "lint": "eslint . --cache",
@@ -22,9 +23,17 @@
     "consola": "^3.2.3",
     "eslint": "^9.11.1",
     "esno": "^4.7.0",
+    "lint-staged": "^15.2.10",
     "pnpm": "^9.11.0",
+    "simple-git-hooks": "^2.11.1",
     "taze": "^0.16.9",
     "tsup": "^8.3.0",
     "typescript": "^5.6.2"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }

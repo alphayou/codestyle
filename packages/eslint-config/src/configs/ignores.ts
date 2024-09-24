@@ -3,7 +3,7 @@ import type { IgnoresOptions } from '@/types/options'
 import { GLOB_EXCLUDE } from '@/constants'
 
 export async function ignores(
-  options: IgnoresOptions = {}
+  options: IgnoresOptions = {},
 ): Promise<TypedIgnores[]> {
   return [
     {
@@ -11,7 +11,7 @@ export async function ignores(
       ignores: [
         ...GLOB_EXCLUDE,
         ...options.userIgnores ?? [],
-      ]
-    }
+      ],
+    },
   ]
 }

@@ -4,7 +4,7 @@ import type { TypedTypeScript } from '@/types/specific'
 import { interop, renameRules } from '@/utils'
 
 export async function typescript(
-  options: TypeScriptOptions = {}
+  options: TypeScriptOptions = {},
 ): Promise<TypedTypeScript[]> {
   // parse options
   const {
@@ -12,20 +12,20 @@ export async function typescript(
     overrides,
   } = options
 
-  const overriding = overrides && Object.keys(overrides).length > 0;
+  const overriding = overrides && Object.keys(overrides).length > 0
 
   const [
     pluginTs,
-    parserTs
+    parserTs,
   ] = await Promise.all([
     interop(import('@typescript-eslint/eslint-plugin')),
-    interop(import('@typescript-eslint/parser'))
+    interop(import('@typescript-eslint/parser')),
   ])
 
   const files = options.files ?? [
     GLOB_TS,
     GLOB_TSX,
-    ...(exts ?? []).map(ext => `**/*.${ext}`)
+    ...(exts ?? []).map(ext => `**/*.${ext}`),
   ]
 
   const filesTypeAware = options.filesTypeAware ?? [GLOB_TS, GLOB_TSX]
@@ -55,15 +55,15 @@ export async function typescript(
           extraFileExtensions: exts?.map(ext => `.${ext}`),
           ...ta
             ? {
-              projectService: {
-                allowDefaultProject: ['./*.js'],
-                defaultProject: tsconfigPath,
-              },
-              tsconfigRootDir: process.cwd(),
-            }
+                projectService: {
+                  allowDefaultProject: ['./*.js'],
+                  defaultProject: tsconfigPath,
+                },
+                tsconfigRootDir: process.cwd(),
+              }
             : {},
-        }
-      }
+        },
+      },
     }
   }
 
@@ -96,16 +96,16 @@ export async function typescript(
       name: 'alphayou/typescript/setup',
       plugins: {
         ts: pluginTs,
-      }
+      },
     },
     ...isTa
       ? [
-        makeParser(false, files),
-        makeParser(true, filesTypeAware, ignoresTypeAware)
-      ]
+          makeParser(false, files),
+          makeParser(true, filesTypeAware, ignoresTypeAware),
+        ]
       : [
-        makeParser(false, files)
-      ],
+          makeParser(false, files),
+        ],
     {
       files,
       name: 'alphayou/typescript/rules',
@@ -155,26 +155,26 @@ export async function typescript(
       },
       ...overriding
         ? [
-          {
-            name: 'alphayou/typescript/overrides',
-            rules: {
-              ...overrides
-            }
-          }
-        ]
+            {
+              name: 'alphayou/typescript/overrides',
+              rules: {
+                ...overrides,
+              },
+            },
+          ]
         : [],
       ...isTa
         ? [
-          {
-            name: 'alphayou/typescript/type-aware',
-            files: filesTypeAware,
-            ignores: ignoresTypeAware,
-            rules: {
-              ...typeAwareRules
-            }
-          }
-        ]
-        : []
-    }
+            {
+              name: 'alphayou/typescript/type-aware',
+              files: filesTypeAware,
+              ignores: ignoresTypeAware,
+              rules: {
+                ...typeAwareRules,
+              },
+            },
+          ]
+        : [],
+    },
   ]
 }

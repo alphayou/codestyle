@@ -9,7 +9,7 @@ const defaults: StylisticOptions = {
 }
 
 export async function style(
-  options: StylisticOptions = {}
+  options: StylisticOptions = {},
 ): Promise<TypedStyle[]> {
   const {
     indent,
@@ -23,7 +23,7 @@ export async function style(
 
   const overriding = overrides && Object.keys(overrides).length > 0
 
-  const pluginStyle = await interop(import("@stylistic/eslint-plugin"))
+  const pluginStyle = await interop(import('@stylistic/eslint-plugin'))
 
   const config = pluginStyle.configs.customize({
     pluginName: 'style',
@@ -42,17 +42,17 @@ export async function style(
       },
       rules: {
         ...config.rules,
-      }
+      },
     },
     ...overriding
       ? [
-        {
-          name: 'alphayou/style/overrides',
-          rules: {
-            ...overrides
-          }
-        }
-      ]
-      : []
+          {
+            name: 'alphayou/style/overrides',
+            rules: {
+              ...overrides,
+            },
+          },
+        ]
+      : [],
   ]
 }

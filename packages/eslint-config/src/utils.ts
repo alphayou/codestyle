@@ -18,7 +18,7 @@ export async function combine(
  * Resolve the default export of a module.
  */
 export async function interop<T>(
-  module: Awaitable<T>
+  module: Awaitable<T>,
 ): Promise<T extends { default: infer U } ? U : T> {
   const resolved = await module
   return (resolved as any).default || resolved
