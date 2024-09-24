@@ -13,13 +13,17 @@
     "lint": "eslint . --cache",
     "lint:fix": "eslint . --cache --fix",
     "deps": "taze -r",
-    "deps:w": "taze -r -w"
+    "deps:w": "taze -r -w",
+    "change": "changelogithub --emoji false",
+    "next": "bumpp -r --no-push"
   },
   "devDependencies": {
     "@alphayou/cs": "workspace:*",
     "@eslint/config-inspector": "^0.5.4",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.6.1",
+    "bumpp": "^9.5.2",
+    "changelogithub": "^0.13.10",
     "consola": "^3.2.3",
     "eslint": "^9.11.1",
     "esno": "^4.7.0",
