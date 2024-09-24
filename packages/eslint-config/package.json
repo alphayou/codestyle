@@ -4,6 +4,10 @@
   "version": "0.7.2",
   "description": "Alpha You's ESLint config preset",
   "homepage": "https://github.com/alphayou/codestyle",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alphayou/codestyle.git",
