@@ -1,5 +1,6 @@
 import { ecmascript } from './ecmascript'
 import { typescript } from './typescript'
+import { style } from './style'
 import { ignores } from './ignores'
 
 import type { ConfigsTypingMeta } from 'typegen/types'
@@ -16,13 +17,18 @@ export const configurations: ConfigsTypingMeta[] = [
     linking: ['ECMAScript'],
   },
   {
+    config: style,
+    typingName: 'Style',
+  },
+  {
     config: ignores,
     typingName: 'Ignores',
-  }
+  },
 ]
 
 export {
   ecmascript,
   typescript,
+  style,
   ignores,
 }

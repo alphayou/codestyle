@@ -5,13 +5,14 @@ import type { Awaitable } from './types/utils'
 import {
   ecmascript,
   typescript,
+  style,
   ignores,
 } from './configs'
 import { resolveOptions, resolveOverrides } from './utils'
 import { isPackageExists } from 'local-pkg'
 
 export async function alphayou(
-  options: Options = {}
+  options: Options = {},
 ): Promise<TypedConfigItem[]> {
   const {
     typescript: isTypeScriptEnable = isPackageExists('typescript'),
@@ -29,6 +30,10 @@ export async function alphayou(
       exts,
       ...resolveOptions(options, 'typescript'),
       overrides: resolveOverrides(options, 'typescript'),
+    }),
+    style({
+      ...resolveOptions(options, 'style'),
+      overrides: resolveOverrides(options, 'style'),
     }),
     ignores({
       ...resolveOptions(options, 'ignores'),

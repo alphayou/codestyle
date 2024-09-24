@@ -1,5 +1,5 @@
-import type { Linter } from 'eslint'
-import type { ECMAScriptRules } from './rules'
+import type { ECMAScriptRules, TypeScriptRules } from './rules'
+import type { StylisticCustomizeOptions as SCO } from '@stylistic/eslint-plugin'
 
 /**
  * @name Overrides
@@ -53,7 +53,7 @@ export type ECMAScriptOptions = Overrides<ECMAScriptRules> & EditorStatus
  * @name TypeScriptOptions
  * @description Options for TypeScript configs
  */
-export type TypeScriptOptions = Overrides & Files & Exts & {
+export type TypeScriptOptions = Overrides<TypeScriptRules> & Files & Exts & {
   /**
    * @name tsconfigPath
    * @description path to the tsconfig file
@@ -72,6 +72,12 @@ export type TypeScriptOptions = Overrides & Files & Exts & {
    */
   ignoresTypeAware?: string[]
 }
+
+/**
+ * @name StylisticOptions
+ * @description Options for Stylistic configs
+ */
+export type StylisticOptions = Overrides & Pick<SCO, 'indent' | 'quotes' | 'semi'>
 
 /**
  * @name IgnoresOptions
@@ -101,6 +107,12 @@ export interface Options {
    * @description TypeScript options
    */
   typescript?: boolean | TypeScriptOptions
+
+  /**
+   * @name StylisticOptions
+   * @description Stylistic options
+   */
+  style?: boolean | StylisticOptions
 
   /**
    * @name IgnoresOptions
