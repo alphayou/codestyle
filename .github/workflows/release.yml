@@ -22,6 +22,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
           node-version: lts/*
 
-      - run: pnpm change
+      - run: npx changelogithub --emoji false
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
