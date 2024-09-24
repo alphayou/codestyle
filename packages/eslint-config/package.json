@@ -1,7 +1,7 @@
 {
   "name": "@alphayou/cs",
   "type": "module",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Alpha You's ESLint config preset",
   "homepage": "https://github.com/alphayou/codestyle",
   "repository": {
