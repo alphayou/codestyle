@@ -1,15 +1,17 @@
 import globals from 'globals'
-
 import type { TypedECMAScript } from '@/types/specific'
 import type { ECMAScriptOptions } from '@/types/options'
+import { interop } from '@/utils'
 
 export async function ecmascript(
   options: ECMAScriptOptions = {},
 ): Promise<TypedECMAScript[]> {
   // parse options
-  const { overrides, isEditor } = options
+  const { overrides, isEditor = false } = options
 
   const overriding = overrides && Object.keys(overrides).length > 0
+
+  const pluginUnusedImports = await interop(import('eslint-plugin-unused-imports'))
 
   return [
     {
@@ -29,6 +31,9 @@ export async function ecmascript(
             jsx: true,
           },
         },
+      },
+      plugins: {
+        'unused-imports': pluginUnusedImports,
       },
     },
     {
@@ -50,6 +55,7 @@ export async function ecmascript(
         'accessor-pairs': ['error', { enforceForClassMembers: true, setWithoutGet: true }],
         'getter-return': ['warn', { allowImplicit: true }],
         'grouped-accessor-pairs': ['error', 'getBeforeSet'],
+        'object-shorthand': ['warn', 'always', { avoidQuotes: true }],
 
         // class
         'class-methods-use-this': ['error', { exceptMethods: ['render'] }],
@@ -168,6 +174,18 @@ export async function ecmascript(
         'valid-typeof': ['error', { requireStringLiterals: true }],
         'vars-on-top': 'error',
         'yoda': ['error', 'never'],
+
+        'unused-imports/no-unused-imports': isEditor ? 'off' : 'error',
+        'unused-imports/no-unused-vars': [
+          'error',
+          {
+            args: 'after-used',
+            argsIgnorePattern: '^_',
+            ignoreRestSiblings: true,
+            vars: 'all',
+            varsIgnorePattern: '^_',
+          },
+        ],
       },
     },
     ...overriding

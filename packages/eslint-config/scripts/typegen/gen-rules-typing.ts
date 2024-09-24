@@ -16,7 +16,6 @@ export async function genRulesTyping(configurations: ConfigsTypingMeta[]): Promi
   target += 'import type { Linter } from \'eslint\'\n'
 
   // progress counter
-  const count = 1
   const totalCount = configurations.length
 
   // exportTypeNames array

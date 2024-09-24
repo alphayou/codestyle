@@ -8,7 +8,7 @@ import {
   style,
   ignores,
 } from './configs'
-import { resolveOptions, resolveOverrides } from './utils'
+import { isInEditorEnv, resolveOptions, resolveOverrides } from './utils'
 import { isPackageExists } from 'local-pkg'
 
 export async function alphayou(
@@ -19,11 +19,14 @@ export async function alphayou(
     exts = [],
   } = options
 
+  const isEditor = isInEditorEnv()
+
   const configs: Awaitable<TypedConfigItem[]>[] = []
 
   // base configs set
   configs.push(
     ecmascript({
+      isEditor,
       overrides: resolveOverrides(options, 'ecmascript'),
     }),
     style({
