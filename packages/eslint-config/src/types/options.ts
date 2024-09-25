@@ -1,6 +1,6 @@
 import type { StylisticCustomizeOptions as SCO } from '@stylistic/eslint-plugin'
 import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
-import type { ECMAScriptRules, TypeScriptRules } from './rules'
+import type { ECMAScriptRules, JSONCRules, StyleRules, TypeScriptRules } from './rules'
 
 /**
  * @name Overrides
@@ -78,7 +78,7 @@ export type TypeScriptOptions = Overrides<TypeScriptRules> & Files & Exts & {
  * @name StylisticOptions
  * @description Options for Stylistic configs
  */
-export type StylisticOptions = Overrides & Pick<SCO, 'indent' | 'quotes' | 'semi'>
+export type StylisticOptions = Overrides<StyleRules> & Pick<SCO, 'indent' | 'quotes' | 'semi'>
 
 /**
  * @name IgnoresOptions
@@ -97,6 +97,12 @@ export interface IgnoresOptions {
    */
   gitignore?: boolean | FlatGitignoreOptions
 }
+
+/**
+ * @name JSONC Options
+ * @description Options for JSON / JSONC files
+ */
+export type JSONCOptions = Overrides<JSONCRules> & Files
 
 /**
  * @name Options
@@ -126,6 +132,12 @@ export interface Options {
    * @description Options for Ignores configs
    */
   ignores?: IgnoresOptions
+
+  /**
+   * @name JSONCOptions
+   * @description Options for JSON / JSONC files
+   */
+  jsonc?: JSONCOptions
 
   /**
    * @name Exts

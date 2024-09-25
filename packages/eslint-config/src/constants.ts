@@ -7,6 +7,10 @@ export const GLOB_TSX = '**/*.?([cm])tsx'
 
 export const GLOB_MARKDOWN = '**/*.md'
 
+export const GLOB_JSON = '**/*.json'
+export const GLOB_JSON5 = '**/*.json5'
+export const GLOB_JSONC = '**/*.jsonc'
+
 // exclude globs
 export const GLOB_EXCLUDE = [
   '**/node_modules',

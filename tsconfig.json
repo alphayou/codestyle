@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
+    "target": "ESNext",
     "lib": ["ESNext"],
     "module": "ESNext",
-    "target": "ESNext",
     "moduleResolution": "Bundler",
     "strict": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
   "include": [
-    "packages/**/*.ts",
+    "packages/**/*.ts"
   ]
 }

@@ -5,6 +5,8 @@ import { style } from './style'
 import { ignores } from './ignores'
 import { imports } from './sort-imports'
 import { jsdoc } from './jsdoc'
+import { jsonc } from './jsonc'
+import { sortPackageJson, sortTsconfig } from './sort-json'
 
 export const configurations: ConfigsTypingMeta[] = [
   {
@@ -30,6 +32,10 @@ export const configurations: ConfigsTypingMeta[] = [
     typingName: 'JSDoc',
   },
   {
+    config: jsonc,
+    typingName: 'JSONC',
+  },
+  {
     config: ignores,
     typingName: 'Ignores',
   },
@@ -39,6 +45,10 @@ export {
   ecmascript,
   typescript,
   style,
+  jsdoc,
+  jsonc,
+  sortPackageJson,
+  sortTsconfig,
   imports,
   ignores,
 }

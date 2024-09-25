@@ -10,9 +10,12 @@ import {
   style,
   ignores,
   imports,
+  jsdoc,
+  jsonc,
+  sortPackageJson,
+  sortTsconfig,
 } from './configs'
 import { isInEditorEnv, resolveOptions, resolveOverrides } from './utils'
-import { jsdoc } from './configs/jsdoc'
 
 export async function alphayou(
   options: Options = {},
@@ -37,6 +40,12 @@ export async function alphayou(
       overrides: resolveOverrides(options, 'style'),
     }),
     jsdoc(options),
+    jsonc({
+      ...resolveOptions(options, 'jsonc'),
+      overrides: resolveOverrides(options, 'jsonc'),
+    }),
+    sortPackageJson(),
+    sortTsconfig(),
     ignores({
       ...resolveOptions(options, 'ignores'),
     }),
