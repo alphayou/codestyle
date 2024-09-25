@@ -7,6 +7,8 @@ import { imports } from './sort-imports'
 import { jsdoc } from './jsdoc'
 import { jsonc } from './jsonc'
 import { sortPackageJson, sortTsconfig } from './sort-json'
+import { regexp } from './regexp'
+import { yaml } from './yaml'
 
 export const configurations: ConfigsTypingMeta[] = [
   {
@@ -36,6 +38,10 @@ export const configurations: ConfigsTypingMeta[] = [
     typingName: 'JSONC',
   },
   {
+    config: yaml,
+    typingName: 'YAML',
+  },
+  {
     config: ignores,
     typingName: 'Ignores',
   },
@@ -49,6 +55,8 @@ export {
   jsonc,
   sortPackageJson,
   sortTsconfig,
+  regexp,
+  yaml,
   imports,
   ignores,
 }

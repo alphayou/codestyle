@@ -105,6 +105,18 @@ export interface IgnoresOptions {
 export type JSONCOptions = Overrides<JSONCRules> & Files
 
 /**
+ * @name Regexp Options
+ * @description Options for Regexp configs
+ */
+export type RegexpOptions = Overrides
+
+/**
+ * @name YAML Options
+ * @description Options for YAML / YAML files
+ */
+export type YAMLOptions = Overrides & Files
+
+/**
  * @name Options
  * @description ALpha You's ESLint configs constructor options
  */
@@ -138,6 +150,18 @@ export interface Options {
    * @description Options for JSON / JSONC files
    */
   jsonc?: JSONCOptions
+
+  /**
+   * @name RegexpOptions
+   * @description Options for Regexp configs
+   */
+  regexp?: RegexpOptions
+
+  /**
+   * @name YAMLOptions
+   * @description Options for YAML / YAML files
+   */
+  yaml?: YAMLOptions
 
   /**
    * @name Exts

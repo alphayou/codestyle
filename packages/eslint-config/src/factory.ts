@@ -14,6 +14,8 @@ import {
   jsonc,
   sortPackageJson,
   sortTsconfig,
+  regexp,
+  yaml,
 } from './configs'
 import { isInEditorEnv, resolveOptions, resolveOverrides } from './utils'
 
@@ -44,8 +46,15 @@ export async function alphayou(
       ...resolveOptions(options, 'jsonc'),
       overrides: resolveOverrides(options, 'jsonc'),
     }),
+    yaml({
+      ...resolveOptions(options, 'yaml'),
+      overrides: resolveOverrides(options, 'yaml'),
+    }),
     sortPackageJson(),
     sortTsconfig(),
+    regexp({
+      overrides: resolveOverrides(options, 'regexp'),
+    }),
     ignores({
       ...resolveOptions(options, 'ignores'),
     }),
