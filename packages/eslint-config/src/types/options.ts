@@ -1,5 +1,6 @@
 import type { ECMAScriptRules, TypeScriptRules } from './rules'
 import type { StylisticCustomizeOptions as SCO } from '@stylistic/eslint-plugin'
+import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
 
 /**
  * @name Overrides
@@ -89,6 +90,12 @@ export interface IgnoresOptions {
    * @description files to ignore (glob patterns)
    */
   userIgnores?: string[]
+
+  /**
+   * @name gitignore
+   * @description whether to use gitignore
+   */
+  gitignore?: boolean | FlatGitignoreOptions
 }
 
 /**
