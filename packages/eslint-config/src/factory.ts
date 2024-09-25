@@ -12,6 +12,7 @@ import {
   imports,
 } from './configs'
 import { isInEditorEnv, resolveOptions, resolveOverrides } from './utils'
+import { jsdoc } from './configs/jsdoc'
 
 export async function alphayou(
   options: Options = {},
@@ -35,6 +36,7 @@ export async function alphayou(
       ...resolveOptions(options, 'style'),
       overrides: resolveOverrides(options, 'style'),
     }),
+    jsdoc(options),
     ignores({
       ...resolveOptions(options, 'ignores'),
     }),

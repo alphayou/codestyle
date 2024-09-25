@@ -4,6 +4,7 @@ import { typescript } from './typescript'
 import { style } from './style'
 import { ignores } from './ignores'
 import { imports } from './sort-imports'
+import { jsdoc } from './jsdoc'
 
 export const configurations: ConfigsTypingMeta[] = [
   {
@@ -23,6 +24,10 @@ export const configurations: ConfigsTypingMeta[] = [
   {
     config: imports,
     typingName: 'Imports',
+  },
+  {
+    config: jsdoc,
+    typingName: 'JSDoc',
   },
   {
     config: ignores,
