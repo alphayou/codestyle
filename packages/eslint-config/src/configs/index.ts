@@ -1,9 +1,9 @@
+import type { ConfigsTypingMeta } from 'typegen/types'
 import { ecmascript } from './ecmascript'
 import { typescript } from './typescript'
 import { style } from './style'
 import { ignores } from './ignores'
-
-import type { ConfigsTypingMeta } from 'typegen/types'
+import { imports } from './sort-imports'
 
 export const configurations: ConfigsTypingMeta[] = [
   {
@@ -21,6 +21,10 @@ export const configurations: ConfigsTypingMeta[] = [
     typingName: 'Style',
   },
   {
+    config: imports,
+    typingName: 'Imports',
+  },
+  {
     config: ignores,
     typingName: 'Ignores',
   },
@@ -30,5 +34,6 @@ export {
   ecmascript,
   typescript,
   style,
+  imports,
   ignores,
 }

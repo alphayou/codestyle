@@ -1,3 +1,5 @@
+import { isPackageExists } from 'local-pkg'
+
 import type { Options } from './types/options'
 import type { TypedConfigItem } from './types/configs'
 import type { Awaitable } from './types/utils'
@@ -7,9 +9,9 @@ import {
   typescript,
   style,
   ignores,
+  imports,
 } from './configs'
 import { isInEditorEnv, resolveOptions, resolveOverrides } from './utils'
-import { isPackageExists } from 'local-pkg'
 
 export async function alphayou(
   options: Options = {},
@@ -47,6 +49,10 @@ export async function alphayou(
       }),
     )
   }
+
+  configs.push(
+    imports(options),
+  )
 
   // resolve all configs
   const target = await Promise.all(configs)

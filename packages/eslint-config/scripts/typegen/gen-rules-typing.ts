@@ -1,8 +1,8 @@
-import type { ConfigsTypingMeta } from './types'
 import { consola } from 'consola'
 import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
-import { combine } from '@/utils'
 import { builtinRules } from 'eslint/use-at-your-own-risk'
+import type { ConfigsTypingMeta } from './types'
+import { combine } from '@/utils'
 
 interface RulesTypingPayload {
   data: string

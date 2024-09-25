@@ -1,6 +1,6 @@
-import type { ECMAScriptRules, TypeScriptRules } from './rules'
 import type { StylisticCustomizeOptions as SCO } from '@stylistic/eslint-plugin'
 import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
+import type { ECMAScriptRules, TypeScriptRules } from './rules'
 
 /**
  * @name Overrides
