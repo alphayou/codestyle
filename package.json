@@ -1,7 +1,7 @@
 {
   "name": "@alphayou/codestyle-monorepo",
   "type": "module",
-  "version": "0.7.12",
+  "version": "0.7.13",
   "private": true,
   "description": "Alpha You's ESLint preset monorepo",
   "author": "Amano Fuon <i@fuon.me>",
